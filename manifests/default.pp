@@ -2,12 +2,12 @@
 # Creates a java 8/tomcat 7 server
 # phillips.james@gmail.com
 
-exec { 'yum makecache':
-  command => 'yum makecache',
-  path    => '/usr/bin/',
-  timeout => 60,
-  tries   => 3
-}
+#exec { 'yum makecache':
+#  command => 'yum makecache',
+#  path    => '/usr/bin/',
+#  timeout => 60,
+#  tries   => 3
+#}
 
 package {
   [
@@ -19,7 +19,6 @@ package {
   ]:
   ensure => 'latest',
   before => Exec['updatedb'],
-  require => Exec['yum makecache']
 }
 
 exec { 'updatedb':
@@ -33,3 +32,12 @@ service { 'tomcat6':
   ensure => running,
   require => Package['tomcat6']
 }
+
+exec { 'enable tomcat':
+  command => 'chkconfig --level 3 tomcat6 on',
+  path => '/sbin/',
+  require => Package['tomcat6']}
+
+exec { 'disable iptables':
+  command => 'chkconfig iptables off',
+  path => '/sbin/'}
