@@ -7,7 +7,7 @@ This uses the following technologies: <a href=https://www.virtualbox.org/>Virtua
 
 1.  Install <a href=https://www.virtualbox.org/>Virtualbox</a>
 2.  Ensure <a href=https://www.vagrantup.com/>Vagrant</a> is installed on your machine
-3.  <code>git clone https://github.com/fortunecookiezen/ubuntu-trusty64-tomcat.git</code>
+3.  <code>git clone https://github.com/fortunecookiezen/centos-devstack.git</code>
 4.  <code>cd centos-devstack</code>
 5.  <code>vagrant up</code> (no need to do a <code>vagrant init</code>)
 6.  browse to <code>http://localhost:8080/</code>
